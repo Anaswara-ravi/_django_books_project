@@ -12,11 +12,6 @@
 
     <h1>all books</h1>
 
-    <p class="subtitle">
-        rendered with <code>{% verbatim %}{% for book in books %}{% endverbatim %}</code>
-        from a list of dictionaries.
-    </p>
-
     <table>
 
         <thead>
@@ -63,22 +58,6 @@
         </tbody>
 
     </table>
-
-    <!-- Code box -->
-    <div class="code-box">
-
-        <pre><code>views.py
-
-books = [
-    {'id': 1, 'title': 'Python Crash Course', 'author': 'Eric Matthes'},
-    {'id': 2, 'title': 'Django for Beginners', 'author': 'W. S. Vincent'},
-]
-
-urls.py
-
-path('books/', views.book_list, name='book_list')</code></pre>
-
-    </div>
 
 </div>
 

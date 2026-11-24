@@ -17,22 +17,9 @@
             <h1>About Bookshelf</h1>
 
             <p class="description">
-                This page has no dynamic data. It practises plain template
-                loading and serving static files: the stylesheet, the logo
-                and images all come from the static/ folder.
+                Bookshelf makes it easy to browse programming, web development,
+                history, and other books.
             </p>
-
-            <div class="static-card">
-
-                <h3>Static files used on this site</h3>
-
-                <ul>
-                    <li>static/css/style.css</li>
-                    <li>static/images/logo.svg</li>
-                    <li>static/images/hero.jpg</li>
-                </ul>
-
-            </div>
 
         </div>
 
@@ -44,27 +31,6 @@
 
     </section>
 
-
-    <section class="code-box">
-
-        <p>
-            <span>settings.py</span>
-            STATIC_URL = '/static/'; STATICFILES_DIRS = [BASE_DIR / 'static']
-        </p>
-
-        <p>
-            <span>template</span>
-            {% verbatim %}{% load static %}{% endverbatim %}
-            &lt;link rel="stylesheet"
-            href="{% verbatim %}{% static 'css/style.css' %}{% endverbatim %}"&gt;
-        </p>
-
-        <p>
-            <span>urls.py</span>
-            path('about/', views.about, name='about')
-        </p>
-
-    </section>
 
 </main>
 
