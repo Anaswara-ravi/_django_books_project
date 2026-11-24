@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Bookshelf{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h2>📚 bookshelf</h2>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'book_list' %}">Books</a>
+            <a href="{% url 'about' %}">About</a>
+        </nav>
+    </header>
+
+    {% block contents %}{% endblock %}
+
+    <footer>
+        <p>© 2026 Bookshelf · Django practice project</p>
+    </footer>
+</body>
+</html>

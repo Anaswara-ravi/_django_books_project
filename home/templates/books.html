@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}All Books{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="books-container">
+
+    <h1>all books</h1>
+
+    <p class="subtitle">
+        rendered with <code>{% verbatim %}{% for book in books %}{% endverbatim %}</code>
+        from a list of dictionaries.
+    </p>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>author</th>
+                <th>category</th>
+                <th>year</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for book in books %}
+
+            <tr>
+                <td>{{ book.id }}</td>
+
+                <td class="book-title">
+                    {{ book.title }}
+                </td>
+
+                <td>{{ book.author }}</td>
+
+                <td>
+                    <span class="category">
+                        {{ book.category }}
+                    </span>
+                </td>
+
+                <td>{{ book.year }}</td>
+
+                <td>
+                    <a href="{% url 'book_detail' book.id %}">
+                        details
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <!-- Code box -->
+    <div class="code-box">
+
+        <pre><code>views.py
+
+books = [
+    {'id': 1, 'title': 'Python Crash Course', 'author': 'Eric Matthes'},
+    {'id': 2, 'title': 'Django for Beginners', 'author': 'W. S. Vincent'},
+]
+
+urls.py
+
+path('books/', views.book_list, name='book_list')</code></pre>
+
+    </div>
+
+</div>
+
+{% endblock %}

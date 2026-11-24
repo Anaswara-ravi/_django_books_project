@@ -1,0 +1,79 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book Details{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="detail-container">
+
+    <!-- Back link -->
+    <a href="{% url 'book_list' %}" class="back-link">
+        ← Back to all books
+    </a>
+
+    <!-- Book details -->
+    <div class="book-detail">
+
+        <!-- Book image -->
+        <div class="book-image">
+            📘
+        </div>
+
+        <!-- Book information -->
+        <div class="book-info">
+
+            <h1>{{ book.title }}</h1>
+
+            <p class="description">
+                {{ book.description }}
+            </p>
+
+            <p>
+                <strong>Author:</strong> {{ book.author }}
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                <span class="category">{{ book.category }}</span>
+            </p>
+
+            <p>
+                <strong>Year:</strong> {{ book.year }}
+            </p>
+
+            <p>
+                <strong>Book ID:</strong> {{ book.id }} (from the URL)
+            </p>
+
+            <!-- Borrow button -->
+            <a href="#" class="borrow-btn">
+                Borrow this book
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Code box -->
+    <div class="code-box">
+
+        <pre><code>urls.py
+
+path('books/2/', views.book_detail, name='book_detail')
+
+
+views.py
+
+def book_detail(request):
+    return render(request, 'book_detail.html')</code></pre>
+
+    </div>
+
+</div>
+
+{% endblock %}
